@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Valenzuela - Portafolio</title>
+    <link rel="stylesheet" href="paginaprincipal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">L<span>V</span></div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home" class="hero">
+      <div class="hero-content">
+          <div class="title-container">
+              <h1 class="glitch" data-text="Luis Valenzuela">Luis Valenzuela</h1>
+              <div class="emoji-dev">
+                  <div class="emoji-wrapper" onclick="this.classList.add('bounce'); setTimeout(() => this.classList.remove('bounce'), 1000)">
+                      👨‍💻
+                      <span class="emoji-tooltip">¡Hola! 👋</span>
+                  </div>
+              </div>
+          </div>
+          <div class="typing-container">
+              <p class="subtitle">
+                  <span class="typing-text">Desarrollador de Software </span>
+                  <span class="cursor">|</span>
+              </p>
+          </div>
+          <div class="cta-buttons">
+              <a href="#contact" class="btn primary">
+                  <span class="btn-content">
+                      <span class="btn-icon">✉️</span>
+                      <span>Contáctame</span>
+                  </span>
+              </a>
+              <a href="#projects" class="btn secondary">
+                  <span class="btn-content">
+                      <span class="btn-icon">🚀</span>
+                      <span>Ver Proyectos</span>
+                  </span>
+              </a>
+          </div>
+      </div>
+      <!-- Fondo animado con partículas -->
+      <div id="particles-js"></div>
+  </section>
+
+  <!-- Particles.js Script -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+      particlesJS("particles-js", {
+          "particles": {
+              "number": {
+                  "value": 100,
+                  "density": {
+                      "enable": true,
+                      "value_area": 800
+                  }
+              },
+              "color": {
+                  "value": "#ffffff"
+              },
+              "shape": {
+                  "type": "circle",
+                  "stroke": {
+                      "width": 0,
+                      "color": "#000000"
+                  }
+              },
+              "opacity": {
+                  "value": 0.5,
+                  "random": false,
+                  "anim": {
+                      "enable": false,
+                      "speed": 1,
+                      "opacity_min": 0.1,
+                      "sync": false
+                  }
+              },
+              "size": {
+                  "value": 3,
+                  "random": true,
+                  "anim": {
+                      "enable": false,
+                      "speed": 40,
+                      "size_min": 0.1,
+                      "sync": false
+                  }
+              },
+              "line_linked": {
+                  "enable": true,
+                  "distance": 150,
+                  "color": "#ffffff",
+                  "opacity": 0.4,
+                  "width": 1
+              },
+              "move": {
+                  "enable": true,
+                  "speed": 6,
+                  "direction": "none",
+                  "random": false,
+                  "straight": false,
+                  "out_mode": "out",
+                  "bounce": false,
+                  "attract": {
+                      "enable": false,
+                      "rotateX": 600,
+                      "rotateY": 1200
+                  }
+              }
+          },
+          "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                  "onhover": {
+                      "enable": true,
+                      "mode": "repulse"
+                  },
+                  "onclick": {
+                      "enable": true,
+                      "mode": "push"
+                  },
+                  "resize": true
+              },
+              "modes": {
+                  "repulse": {
+                      "distance": 100,
+                      "duration": 0.4
+                  },
+                  "push": {
+                      "particles_nb": 4
+                  }
+              }
+          },
+          "retina_detect": true
+      });
+  </script>
+
+
+    <section id="about" class="about">
+      <div class="section-content">
+          <div class="about-text">
+              <span class="section-tag">Sobre mí</span>
+              <div class="about-header">
+                  <h2>Desarrollador de Software</h2>
+              </div>
+              <p>Soy titulado en Ingeniería en Informática de DUOC UC y estoy en busca de una oportunidad laboral que me permita aplicar mis conocimientos en desarrollo de software, fortalecer mis habilidades técnicas y contribuir al éxito de proyectos innovadores. Me motiva participar en equipos multidisciplinarios donde pueda aportar soluciones tecnológicas efectivas y enfrentar desafíos que impulsen mi crecimiento profesional. Mi objetivo es integrarme a una organización que valore la innovación, la colaboración y la mejora continua, aportando valor con compromiso y dedicación.</p>
+          </div>
+          <div class="about-image">
+              <img src="foto_mia.jpg" alt="Perfil">
+          </div>
+      </div>
+  </section>
+  <section id="skills" class="skills">
+    <div class="section-content">
+        <h2>Habilidades</h2>
+        <p class="section-description">Estas son mis habilidades técnicas y niveles de competencia basados en mi experiencia académica y profesional.</p>
+        <div class="skills-grid">
+            <!-- Python Skill -->
+            <div class="skill-card">
+                <span class="skill-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python Icon" width="40">
+                </span>
+                <div class="skill-info">
+                    <span class="skill-name">Python</span>
+                    <p>Desarrollo de aplicaciones backend, automatización de procesos y análisis de datos.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                    <span class="skill-level">90%</span>
+                </div>
+            </div>
+            <!-- SQL Skill -->
+<div class="skill-card">
+  <span class="skill-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/2772/2772128.png" alt="SQL Server Icon" width="40">
+  </span>
+  <div class="skill-info">
+      <span class="skill-name">SQL</span>
+      <p>Gestión y manipulación de bases de datos relacionales, optimización de consultas y generación de reportes.</p>
+      <div class="progress-bar">
+          <div class="progress" style="width: 80%"></div>
+      </div>
+      <span class="skill-level">80%</span>
+  </div>
+</div>
+
+            <!-- Django Skill -->
+            <div class="skill-card">
+              <span class="skill-icon">
+                  <img src="https://cdn-icons-png.flaticon.com/512/9307/9307630.png" alt="Django Icon" width="40">
+              </span>
+              <div class="skill-info">
+                  <span class="skill-name">Django</span>
+                  <p>Framework para desarrollo de aplicaciones web rápidas y seguras.</p>
+                  <div class="progress-bar">
+                      <div class="progress" style="width: 85%"></div>
+                  </div>
+                  <span class="skill-level">85%</span>
+              </div>
+          </div>
+            <!-- Node.js Skill -->
+            <div class="skill-card">
+                <span class="skill-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js Icon" width="40">
+                </span>
+                <div class="skill-info">
+                    <span class="skill-name">Node.js</span>
+                    <p>Plataforma de desarrollo backend para aplicaciones escalables.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                    <span class="skill-level">75%</span>
+                </div>
+            </div>
+            <!-- Google Cloud Platform Skill -->
+            <div class="skill-card">
+                <span class="skill-icon">
+                    <img src="GCP.png" alt="Google Cloud Platform Icon" width="40">
+                </span>
+                <div class="skill-info">
+                    <span class="skill-name">Google Cloud Platform</span>
+                    <p>Implementación de soluciones en la nube para big data y minería de datos.</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                    <span class="skill-level">70%</span>
+                </div>
+            </div>
+           <!-- Angular Skill -->
+           <div class="skill-card">
+            <span class="skill-icon">
+                <img src="Angular.png" alt="Angular Icon" width="40">
+            </span>
+            <div class="skill-info">
+                <span class="skill-name">Angular</span>
+                <p>Framework frontend para la creación de aplicaciones web dinámicas y modernas.</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                </div>
+                <span class="skill-level">75%</span>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <section id="projects" class="projects">
+      <div class="section-content">
+          <h2>Proyectos</h2>
+          <p class="section-description">Revisa algunos de mis trabajos recientes</p>
+          <div class="projects-grid">
+              <!-- Proyecto Air One -->
+              <div class="project-card">
+                  <div class="project-image">
+                      <img src="https://images.unsplash.com/photo-1593642532400-2682810df593" alt="Air One - Dashboard de Finanzas">
+                  </div>
+                  <div class="project-info">
+                      <h3>Air One</h3>
+                      <p>Desarrollado con el framework Django, integrado con una aplicación de escritorio WPF y la API de Transbank para el procesamiento de pagos.</p>
+                      <div class="project-tags">
+                          <span>Django</span>
+                          <span>Integración API</span>
+                          <span>WPF</span>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Proyecto Registra APP -->
+              <div class="project-card">
+                  <div class="project-image">
+                      <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f" alt="Registra APP - Aplicación Móvil">
+                  </div>
+                  <div class="project-info">
+                      <h3>Registra APP</h3>
+                      <p>Aplicación móvil construida con Ionic y Django Rest Framework para la gestión académica.</p>
+                      <div class="project-tags">
+                          <span>Ionic</span>
+                          <span>Django REST</span>
+                          <span>Móvil</span>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Proyecto Sismos Chile -->
+              <div class="project-card">
+                  <div class="project-image">
+                      <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5" alt="Sismos Chile - Análisis de Datos">
+                  </div>
+                  <div class="project-info">
+                      <h3>Sismos Chile</h3>
+                      <p>Proyecto de análisis de datos utilizando Google Cloud Platform para procesar y visualizar datos sísmicos.</p>
+                      <div class="project-tags">
+                          <span>GCP</span>
+                          <span>BigQuery</span>
+                          <span>Análisis de Datos</span>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Proyecto Rescate Soft -->
+              <div class="project-card">
+                  <div class="project-image">
+                      <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe" alt="Rescate Soft - Bomberos">
+                  </div>
+                  <div class="project-info">
+                      <h3>Rescate Soft</h3>
+                      <p>Software desarrollado con Angular y Node.js para automatizar el ingreso de siniestros ocurridos en una comuna. Implementa Power BI para la visualización de dashboards y minería de datos para predicciones.</p>
+                      <div class="project-tags">
+                          <span>Angular</span>
+                          <span>Node.js</span>
+                          <span>Power BI</span>
+                          <span>Minería de Datos</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  
+
+  <section id="contact" class="contact">
+    <div class="section-content">
+        <h2>Contacto</h2>
+
+        <!-- Información de contacto -->
+        <div class="contact-info">
+            <p><strong>📧 Email:</strong> luisvalenzuela0202@gmail.com</p>
+            <p><strong>📞 Teléfono:</strong> +56 9 9224 4708</p>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="social-links">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/luis-valenzuela-893054300/" target="_blank" class="social-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.23 0H1.77C.79 0 0 .77 0 1.75v20.49C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.76V1.75C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.51c-1.13 0-2.05-.91-2.05-2.03 0-1.13.92-2.04 2.05-2.04s2.05.91 2.05 2.04c0 1.12-.92 2.03-2.05 2.03zm14.66 12.94h-3.56v-5.59c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.68h-3.56V9h3.42v1.56h.05c.48-.91 1.66-1.85 3.41-1.85 3.65 0 4.32 2.4 4.32 5.51v6.23z"></path>
+                </svg>
+                LinkedIn
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/Lushooc" target="_blank" class="social-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.833 2.809 1.303 3.492.996.108-.774.418-1.303.76-1.602-2.665-.303-5.466-1.334-5.466-5.93 0-1.31.467-2.382 1.236-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.01-.323 3.31 1.23.957-.266 1.984-.399 3.004-.403 1.02.004 2.048.137 3.006.403 2.296-1.553 3.303-1.23 3.303-1.23.656 1.653.243 2.873.12 3.176.772.838 1.236 1.91 1.236 3.22 0 4.607-2.807 5.624-5.479 5.921.43.372.813 1.102.813 2.222 0 1.606-.014 2.899-.014 3.293 0 .32.216.694.824.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"></path>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>© 2024 Luis Valenzuela. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

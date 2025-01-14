@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Lato, sans-serif;
+}
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* Increased max-width for larger images */
+  margin: auto;
+  overflow: hidden;
+}
+
+.carrusel h1 {
+  font-family: 'Arial', sans-serif; /* Fuente moderna */
+  font-size: 5em; /* Tamaño grande para destacar */
+  color: #fff; /* Color del texto blanco para contraste */
+  text-shadow: 
+      1px 1px 0 #000,   /* Sombra secundaria más cerca del texto */
+      2px 2px 0 #333,   /* Sombra principal más lejos del texto */
+      3px 3px 0 #666,   /* Sombra secundaria más lejos del texto */
+      4px 4px 0 #999,   /* Sombra terciaria más lejos del texto */
+      5px 5px 0 #ccc;   /* Sombra terciaria más lejos del texto */
+  /* Gradiente en el fondo para el efecto de profundidad */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0,0,0,0.4));
+  padding: 20px 40px; /* Espaciado interno */
+  border-radius: 12px; /* Bordes redondeados */
+  border: 10px solid #0d00ffe3; /* Borde color aqua */
+  box-shadow: 
+      0 1px 3px rgba(0,0,0,0.2),  /* Sombra sutil en la base del texto */
+      0 4px 6px rgba(0,0,0,0.2),  /* Sombra más pronunciada para el efecto 3D */
+      0 6px 8px rgba(0,0,0,0.2);  /* Sombra más profunda para mayor efecto */
+  transform: perspective(10000px) rotateX(3deg) rotateY(3deg); /* Transformación para efecto 3D */
+}
+
+.slider-frame {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-frame ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.slider-frame li {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slider-frame h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+}
+
+.slider-frame img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* Limit the height to make it responsive */
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(43, 0, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 2rem;
+  line-height: 1;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
