@@ -1,3 +1,157 @@
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.image-modal img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 50%;
+  z-index: 2100;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  border-radius: 50%;
+  z-index: 2100;
+}
+.modal-close:hover {
+  color: var(--text);
+}
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.modal-gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-description {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.modal-tags span {
+  padding: 0.25rem 0.75rem;
+  background: var(--border);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* CV Download Button Styles */
+.nav-links {
+  display: flex;
+  align-items: center; /* Asegura que todos los elementos se alineen verticalmente */
+  gap: 1.5rem; /* Espacio entre los elementos */
+  list-style: none;
+}
+
+.cv-download {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  font-weight: 500;
+  color: #1e293b;
+  transition: all 0.3s ease;
+}
+
+.cv-download:hover {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 6px 10px rgba(37, 99, 235, 0.2);
+}
+
+.cv-download svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
 :root {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
