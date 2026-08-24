@@ -26,8 +26,16 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
       - name: Install dependencies
         run: npm ci
+      - name: Install CV dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-cv.txt
+      - name: Generate current CV
+        run: python scripts/generate_cv.py
       - name: Lint
         run: npm run lint
       - name: Build

@@ -110,6 +110,28 @@ const experience = [
 
 const projects = [
   {
+    title: 'Styrka Producciones', type: 'Sitio corporativo · Sonido profesional', accent: '#f0a64a',
+    status: 'En desarrollo',
+    summary: 'Experiencia digital orientada a presentar servicios y equipamiento de sonido, resolver dudas y convertir visitas en solicitudes de cotización.',
+    detail: 'Diseñé y construí una experiencia web corporativa para Styrka Producciones, enfocada en comunicar con claridad su propuesta de sonido profesional en la V Región. El sitio organiza sus servicios, inventario de equipos, proceso de trabajo y preguntas frecuentes, y conecta los principales puntos de conversión con WhatsApp, correo e Instagram. Actualmente continúa en etapa de validación y refinamiento de contenido antes de su entrega definitiva.',
+    cover: '/assets/projects/client-sites/styrka-producciones.jpg',
+    images: ['/assets/projects/client-sites/styrka-producciones.jpg'],
+    imageLabels: ['Preview actual · Portada de Styrka Producciones'],
+    tags: ['Sitio corporativo', 'UX/UI', 'Responsive', 'Conversión', 'WhatsApp'],
+    liveUrl: 'https://styrka-producciones.lushooc.chatgpt.site/',
+  },
+  {
+    title: 'Vía Interiores', type: 'Sitio corporativo · Carpintería y retail', accent: '#9aaa6a',
+    status: 'En desarrollo',
+    summary: 'Vitrina digital para exhibir proyectos de implementación comercial, comunicar servicios y generar nuevas oportunidades de contacto.',
+    detail: 'Diseñé una propuesta web para Vía Interiores que transforma su trabajo visual en una experiencia corporativa clara y editorial. El sitio presenta servicios de carpintería, obras civiles e implementación comercial, una selección de proyectos reales y un proceso de trabajo de principio a fin. La versión actual funciona como preview y continúa en desarrollo mientras se validan contenidos y canales de contacto definitivos.',
+    cover: '/assets/projects/client-sites/via-interiores.jpg',
+    images: ['/assets/projects/client-sites/via-interiores.jpg'],
+    imageLabels: ['Preview actual · Portada de Vía Interiores'],
+    tags: ['Sitio corporativo', 'UX/UI', 'Responsive', 'Portfolio visual', 'Retail'],
+    liveUrl: 'https://via-interiores.lushooc.chatgpt.site/',
+  },
+  {
     title: 'Evolución de mi Portafolio', type: 'Proyecto personal · Frontend & UX', accent: '#22d3ee',
     summary: 'Migración completa de un portafolio construido con HTML, CSS y JavaScript a una experiencia moderna con React, Tailwind CSS y Ant Design.',
     detail: 'Renové la arquitectura, el contenido y la experiencia visual de mi portafolio personal. La versión original utilizaba HTML, CSS y JavaScript sin framework; la nueva implementación incorpora componentes reutilizables con React, estilos responsivos con Tailwind CSS, componentes de Ant Design, Vite y despliegue automatizado en GitHub Pages. También implementé contenido dinámico: la antigüedad de mi cargo actual se calcula automáticamente cada mes con la zona horaria de Chile, eliminando la necesidad de actualizar manualmente el período. Las capturas muestran la evolución real del proyecto, desde la portada y la galería anteriores hasta la nueva experiencia.',
@@ -200,7 +222,7 @@ function App() {
         {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
       </nav>
       <div className="header-actions">
-        <Button className="desktop-cv" icon={<DownloadOutlined />} href="/documents/cv-luis-valenzuela.pdf" target="_blank">Descargar CV</Button>
+        <Button className="desktop-cv" icon={<DownloadOutlined />} href="/documents/cv-luis-valenzuela.pdf" download="CV-Luis-Valenzuela-Madrid.pdf">Descargar CV</Button>
         <Button className="mobile-menu" type="text" icon={<MenuOutlined />} aria-label="Abrir menú" onClick={() => setMenuOpen(true)} />
       </div>
     </header>
@@ -208,7 +230,7 @@ function App() {
     <Drawer title="Navegación" placement="right" open={menuOpen} onClose={() => setMenuOpen(false)} size={300}>
       <nav className="drawer-nav" aria-label="Navegación móvil">
         {navigation.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}<ArrowRightOutlined /></a>)}
-        <Button type="primary" icon={<DownloadOutlined />} href="/documents/cv-luis-valenzuela.pdf" target="_blank" block>Descargar CV</Button>
+        <Button type="primary" icon={<DownloadOutlined />} href="/documents/cv-luis-valenzuela.pdf" download="CV-Luis-Valenzuela-Madrid.pdf" block>Descargar CV</Button>
       </nav>
     </Drawer>
 
@@ -300,12 +322,14 @@ function App() {
       </div></section>
 
       <section id="proyectos" className="section projects-section"><div className="container-wide">
-        <SectionHeading eyebrow="Trabajo seleccionado" title="Proyectos que combinan producto y tecnología" description="Casos desarrollados durante mi formación, ahora presentados con sus capturas reales y contexto técnico." />
+        <SectionHeading eyebrow="Trabajo seleccionado" title="Proyectos que combinan producto y tecnología" description="Productos personales, académicos y experiencias web en desarrollo, presentados con capturas reales, propósito y contexto técnico." />
         <div className="projects-grid">
           {projects.map((project, index) => <article className="project-card reveal" key={project.title} style={{ '--accent': project.accent, '--delay': `${index * 90}ms` }}>
             <button type="button" className="project-image" onClick={() => setSelectedProject(project)} aria-label={`Ver detalles de ${project.title}`}>
               <img src={project.cover} alt={`Captura del proyecto ${project.title}`} loading="lazy" />
-              <span className="project-index">0{index + 1}</span><span className="project-view">Ver caso <ArrowRightOutlined /></span>
+              <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+              {project.status && <span className="project-status"><span />{project.status}</span>}
+              <span className="project-view">Ver caso <ArrowRightOutlined /></span>
             </button>
             <div className="project-body"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.summary}</p>
               <div className="project-tags">{project.tags.slice(0, 3).map((tag) => <Tag key={tag}>{tag}</Tag>)}</div>
@@ -339,9 +363,9 @@ function App() {
           <img src={image} alt={`${selectedProject.title}, captura ${index + 1}`} />
           {selectedProject.imageLabels?.[index] && <span className="modal-slide-label">{selectedProject.imageLabels[index]}</span>}
         </div>)}</Carousel>
-        <div className="modal-copy"><p className="project-type">{selectedProject.type}</p><p>{selectedProject.detail}</p><div className="project-tags">{selectedProject.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}</div>
+        <div className="modal-copy"><div className="modal-project-heading"><p className="project-type">{selectedProject.type}</p>{selectedProject.status && <span className="project-status project-status--inline" style={{ '--accent': selectedProject.accent }}><span />{selectedProject.status}</span>}</div><p>{selectedProject.detail}</p><div className="project-tags">{selectedProject.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}</div>
           {(selectedProject.liveUrl || selectedProject.repositoryUrl) && <div className="project-links">
-            {selectedProject.liveUrl && <Button type="primary" href={selectedProject.liveUrl} target="_blank" icon={<RocketOutlined />}>Ver sitio</Button>}
+            {selectedProject.liveUrl && <Button type="primary" href={selectedProject.liveUrl} target="_blank" icon={<RocketOutlined />}>{selectedProject.status ? 'Ver preview' : 'Ver sitio'}</Button>}
             {selectedProject.repositoryUrl && <Button href={selectedProject.repositoryUrl} target="_blank" icon={<GithubOutlined />}>Ver repositorio</Button>}
           </div>}
         </div>
