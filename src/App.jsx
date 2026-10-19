@@ -13,6 +13,7 @@ import {
 import { RiMicrosoftFill } from 'react-icons/ri'
 import { TbBrandOpenai } from 'react-icons/tb'
 import { VscAzure } from 'react-icons/vsc'
+import StyrkaCaseStudy from './StyrkaCaseStudy'
 
 const navigation = [
   ['Inicio', '#inicio'], ['Sobre mí', '#sobre-mi'], ['Experiencia', '#experiencia'],
@@ -110,15 +111,13 @@ const experience = [
 
 const projects = [
   {
-    title: 'Styrka Producciones', type: 'Sitio corporativo · Sonido profesional', accent: '#f0a64a',
-    status: 'En desarrollo',
-    summary: 'Experiencia digital orientada a presentar servicios y equipamiento de sonido, resolver dudas y convertir visitas en solicitudes de cotización.',
-    detail: 'Diseñé y construí una experiencia web corporativa para Styrka Producciones, enfocada en comunicar con claridad su propuesta de sonido profesional en la V Región. El sitio organiza sus servicios, inventario de equipos, proceso de trabajo y preguntas frecuentes, y conecta los principales puntos de conversión con WhatsApp, correo e Instagram. Actualmente continúa en etapa de validación y refinamiento de contenido antes de su entrega definitiva.',
-    cover: '/assets/projects/client-sites/styrka-producciones.jpg',
-    images: ['/assets/projects/client-sites/styrka-producciones.jpg'],
-    imageLabels: ['Preview actual · Portada de Styrka Producciones'],
-    tags: ['Sitio corporativo', 'UX/UI', 'Responsive', 'Conversión', 'WhatsApp'],
-    liveUrl: 'https://styrka-producciones.lushooc.chatgpt.site/',
+    id: 'styrka',
+    title: 'Styrka Producciones', type: 'Diseño web · Catálogo · Lanzamiento', accent: '#6ee7f9',
+    status: 'Publicado',
+    summary: 'De la primera propuesta a una web publicada: nueva dirección visual, catálogo de equipos, consultas por WhatsApp y campaña de lanzamiento. Desarrollo asistido por Codex.',
+    cover: '/assets/projects/styrka/home.png',
+    tags: ['React', 'TypeScript', 'Codex', 'UX/UI', 'Vinext', 'Vite', 'Sites', 'Remotion', 'Python', 'Cloudflare'],
+    liveUrl: 'https://styrkaproducciones.cl/',
   },
   {
     title: 'Vía Interiores', type: 'Sitio corporativo · Carpintería y retail', accent: '#9aaa6a',
@@ -322,18 +321,18 @@ function App() {
       </div></section>
 
       <section id="proyectos" className="section projects-section"><div className="container-wide">
-        <SectionHeading eyebrow="Trabajo seleccionado" title="Proyectos que combinan producto y tecnología" description="Productos personales, académicos y experiencias web en desarrollo, presentados con capturas reales, propósito y contexto técnico." />
+        <SectionHeading eyebrow="Trabajo seleccionado" title="Proyectos que combinan producto y tecnología" description="Productos personales, académicos y experiencias web, presentados con capturas reales, su evolución y contexto técnico." />
         <div className="projects-grid">
           {projects.map((project, index) => <article className="project-card reveal" key={project.title} style={{ '--accent': project.accent, '--delay': `${index * 90}ms` }}>
             <button type="button" className="project-image" onClick={() => setSelectedProject(project)} aria-label={`Ver detalles de ${project.title}`}>
               <img src={project.cover} alt={`Captura del proyecto ${project.title}`} loading="lazy" />
               <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
-              {project.status && <span className="project-status"><span />{project.status}</span>}
+              {project.status && <span className={`project-status${project.status === 'Publicado' ? ' project-status--published' : ''}`}><span />{project.status}</span>}
               <span className="project-view">Ver caso <ArrowRightOutlined /></span>
             </button>
             <div className="project-body"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.summary}</p>
               <div className="project-tags">{project.tags.slice(0, 3).map((tag) => <Tag key={tag}>{tag}</Tag>)}</div>
-              <button className="text-button" type="button" onClick={() => setSelectedProject(project)}>Explorar proyecto <ArrowRightOutlined /></button>
+              <button className="text-button" type="button" onClick={() => setSelectedProject(project)}>{project.id === 'styrka' ? 'Ver antes y después' : 'Explorar proyecto'} <ArrowRightOutlined /></button>
             </div>
           </article>)}
         </div>
@@ -357,8 +356,8 @@ function App() {
       </div>
     </div></footer>
 
-    <Modal open={Boolean(selectedProject)} onCancel={() => setSelectedProject(null)} footer={null} width={960} centered destroyOnHidden title={selectedProject?.title} className="project-modal">
-      {selectedProject && <div className="modal-layout">
+    <Modal open={Boolean(selectedProject)} onCancel={() => setSelectedProject(null)} footer={null} width={selectedProject?.id === 'styrka' ? 1120 : 960} centered destroyOnHidden title={selectedProject?.title} className="project-modal">
+      {selectedProject?.id === 'styrka' ? <StyrkaCaseStudy /> : selectedProject && <div className="modal-layout">
         <Carousel arrows dots={{ className: 'carousel-dots' }}>{selectedProject.images.map((image, index) => <div className="modal-slide" key={image}>
           <img src={image} alt={`${selectedProject.title}, captura ${index + 1}`} />
           {selectedProject.imageLabels?.[index] && <span className="modal-slide-label">{selectedProject.imageLabels[index]}</span>}
